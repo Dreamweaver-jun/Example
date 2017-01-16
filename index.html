@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习1</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var t = 864099;  //秒数
+        function dateFormat(time){
+            var d = ~~(time/86400);
+            var h = ~~(time%86400/3600);
+            var m = ~~(time%86400%3600/60);
+            var s = ~~(time%86400%3600%60);
+            return d + '天' + h + '时' + m + '分' + s + '秒';
+        }
+
+        $(function(){
+            $('p').text(dateFormat(t));
+        });
+
+
+
+        //把小于0的元素改为0后输出
+        var a = [-1,1,1,2,-2,-2,-3,-3,3,-3];
+        function f(s,e){
+            var ret = [];
+            for(var i in s)
+            {
+                ret.push(e(s[i]));
+            }
+            return ret;
+        }
+
+        f(a,function(n){
+            return n>0?n:0;
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>
