@@ -1,1 +1,1 @@
-module.exports = 'It works form module.js.';
+document.write('It works form module.js.');

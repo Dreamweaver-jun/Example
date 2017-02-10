@@ -1,6 +1,6 @@
 /*! This file is created by zyj */
 /*! 2017-2-10 */
-/*! 15:50:40 */
+/*! 15:54:14 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -47,9 +47,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);                                          //load css
-	document.write('It works!');
-	document.write(__webpack_require__(5));                           //add module
+	__webpack_require__(1);                          //load css
+	__webpack_require__(5);                           //add module
 
 /***/ },
 /* 1 */
@@ -403,7 +402,7 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	module.exports = 'It works form module.js.';
+	document.write('It works form module.js.');
 
 /***/ }
 /******/ ]);
