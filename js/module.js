@@ -1,2 +1,2 @@
 document.write('It works form module.js.');
-console.log('╠╬дё©И╪стьЁи╧╕ё║');
+console.log('Ф°╛Ф╗║Е²≈Е┼═Х╫╫Ф┬░Е┼÷!');

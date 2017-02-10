@@ -1,6 +1,6 @@
 /*! This file is created by zyj */
 /*! 2017-2-10 */
-/*! 15:54:14 */
+/*! 16:26:56 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -85,7 +85,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\r\n    background: blue;\r\n}", ""]);
+	exports.push([module.id, "* {\r\n    padding: 0;\r\n    margin: 0;\r\n}\r\nbody {\r\n    background: blue;\r\n}", ""]);
 
 	// exports
 
@@ -403,7 +403,7 @@
 /***/ function(module, exports) {
 
 	document.write('It works form module.js.');
-	console.log('��ģ�����سɹ���');
+	console.log('本模块加载成功!');
 
 /***/ }
 /******/ ]);
