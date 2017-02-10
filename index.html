@@ -15,10 +15,8 @@
         }
 
         $(function(){
-            $('p').text(dateFormat(t));
+            $('p.time-wrap').text(dateFormat(t));
         });
-
-
 
         //把小于0的元素改为0后输出
         var a = [-1,1,1,2,-2,-2,-3,-3,3,-3];
@@ -34,9 +32,24 @@
         f(a,function(n){
             return n>0?n:0;
         });
+
+        var b = 2;
+
+        function t1(){
+            var c = 3;
+
+            function t2(){
+                var d = 4;
+                console.log(b+c+d);
+            }
+            t2();
+        }
+
+        t1();
+
     </script>
 </head>
 <body>
-    <p></p>
+    <p class="time-wrap"></p>
 </body>
 </html>
