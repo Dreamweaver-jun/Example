@@ -5,3 +5,6 @@
 body {
     background: blue;
 }
+ul li {
+    display: block;
+}
