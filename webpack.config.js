@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './js/entry.js',
+    entry: './js/entry.js',                 //唯一入口文件
     output: {
-        path: __dirname,
-        filename: 'js/bundle.js'
+        path: __dirname,                    //打包后的文件存放的地方
+        filename: 'js/bundle.js'            //打包后输出文件的文件名
     },
     module: {
         loaders: [
