@@ -4,7 +4,8 @@
   "description": "A simple webpack example.",
   "main": "bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "babel js/ES6.js -w -o js/ES5.js"
   },
   "keywords": [
     "webpack"
@@ -12,6 +13,8 @@
   "author": "zyj",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
     "bootstrap": "^3.3.7",
     "css-loader": "^0.21.0",
     "jquery": "^3.1.1",
