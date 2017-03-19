@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="js/ES6.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var b1 = '你';
+            var b2 = '好';
+            var b3 = '啊！';
+            $('#test').append(`
+            <span>${b1}</span>
+            <span>${b2}</span>
+            <span class="dd">${b3}</span>`.trim());
+        });
+    </script>
 </head>
 <body>
-
+    <p id="test"></p>
 </body>
 </html>
