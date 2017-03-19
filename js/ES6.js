@@ -258,5 +258,3 @@ var tfn1 = new tFn();
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype);         //返回true
 Object.setPrototypeOf(tfn1,Object.prototype);
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype);         //返回false
-
-
