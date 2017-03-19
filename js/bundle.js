@@ -1,6 +1,6 @@
 /*! This file is created by zyj */
-/*! 2017-2-13 */
-/*! 14:42:4 */
+/*! 2017-3-19 */
+/*! 16:56:54 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -66,8 +66,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./style.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./style.css");
+			module.hot.accept("!!../node_modules/css-loader/index.js!./style.css", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!./style.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -163,7 +163,7 @@
 			};
 		},
 		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+			return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 		}),
 		getHeadElement = memoize(function () {
 			return document.head || document.getElementsByTagName("head")[0];
