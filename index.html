@@ -48,10 +48,27 @@
 
         t1();
 
+        //闭包
+        var x = 100;
+        var inc = function(){
+            var x = 0;
+            return function(){
+                console.log(x++);
+            }
+        };
+
+        var inc1 = inc();
+        var inc2 = inc();
+
+        console.log('inc1:' + inc1());
+        console.log('inc1:' + inc1());
+        console.log('inc1:' + inc2());
+        console.log('inc1:' + inc1());
+        console.log('inc1:' + inc2());
+
     </script>
 </head>
 <body>
-    <p class="time-wrap text-danger"></p>
-    <script src="js/bundle.js"></script>
+
 </body>
 </html>

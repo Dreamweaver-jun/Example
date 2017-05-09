@@ -5,7 +5,7 @@
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "babel js/ES6.js -w -o js/ES5.js"
+    "build": "babel js/ES6.js -w -o js/ES5.js"
   },
   "keywords": [
     "webpack"
@@ -16,9 +16,9 @@
     "babel-cli": "^6.23.0",
     "babel-preset-env": "^1.1.8",
     "bootstrap": "^3.3.7",
-    "css-loader": "^0.21.0",
+    "css-loader": "^0.27.3",
     "jquery": "^3.1.1",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.2"
+    "style-loader": "^0.13.2",
+    "webpack": "^2.3.2"
   }
 }

@@ -2,24 +2,32 @@
 
 //input.map(item => item + 111111);
 
+var _kObj;
+
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _templateObject = _taggedTemplateLiteral(['<p>hello! ', '! how are you today?</p>'], ['<p>hello! ', '! how are you today?</p>']);
 
+var _marked = [gen].map(regeneratorRuntime.mark);
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var arr = [];
 
-var _loop = function _loop(i) {
-    arr[i] = function () {
-        console.log(i);
+var _loop = function _loop(_i) {
+    arr[_i] = function () {
+        console.log(_i);
     };
 };
 
-for (var i = 0; i < 10; i++) {
-    _loop(i);
+for (var _i = 0; _i < 10; _i++) {
+    _loop(_i);
 }
 
 arr[6](); //输出6，如果var声明i，则输出10
@@ -381,10 +389,10 @@ var sortTest = sortArr.sort(function (a, b) {
 console.log(sortTest);
 
 function setFun() {
-    var _this = this;
+    var _this2 = this;
 
     setTimeout(function () {
-        console.log(_this.setId); //this对象的指向是可变的，但是在箭头函数中，它是固定的
+        console.log(_this2.setId); //this对象的指向是可变的，但是在箭头函数中，它是固定的
     });
 }
 var setId = 32;
@@ -418,3 +426,263 @@ var tfn1 = new tFn();
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype); //返回true
 Object.setPrototypeOf(tfn1, Object.prototype);
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype); //返回false
+
+var sObj = {};
+var s1 = Symbol();
+var s2 = Symbol();
+sObj[s1] = 'hello,';
+sObj[s2] = 'world!';
+
+var tObj = Object.getOwnPropertySymbols(sObj);
+
+console.log(tObj);
+
+var kObj = (_kObj = {}, _defineProperty(_kObj, Symbol('myKey'), 1), _defineProperty(_kObj, 'name', 'v'), _defineProperty(_kObj, 'age', 34), _kObj);
+
+console.log(Reflect.ownKeys(kObj));
+
+var ss1 = new Set();
+
+[2, 4, 5, 6, 7, 5, 6, 7].forEach(function (x) {
+    return ss1.add(x);
+});
+
+var _iteratorNormalCompletion5 = true;
+var _didIteratorError5 = false;
+var _iteratorError5 = undefined;
+
+try {
+    for (var _iterator5 = ss1[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        var i = _step5.value;
+
+        console.log(i);
+    }
+} catch (err) {
+    _didIteratorError5 = true;
+    _iteratorError5 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+            _iterator5.return();
+        }
+    } finally {
+        if (_didIteratorError5) {
+            throw _iteratorError5;
+        }
+    }
+}
+
+var ss2 = new Set([2, 4, 6, 8, 0, 8, 0]);
+console.log(ss2);
+ss2.delete(0);
+console.log(ss2.has(2));
+//ss2.clear();
+console.log(ss2);
+
+//去重数组元素
+function dedupe(arr) {
+    return Array.from(new Set(arr));
+}
+
+console.log(dedupe([5, 6, 4, 1, 5, 6, 4]));
+
+//遍历Set数据结构
+var _iteratorNormalCompletion6 = true;
+var _didIteratorError6 = false;
+var _iteratorError6 = undefined;
+
+try {
+    for (var _iterator6 = ss2[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+        var sItem = _step6.value;
+
+        console.log(sItem);
+    }
+} catch (err) {
+    _didIteratorError6 = true;
+    _iteratorError6 = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion6 && _iterator6.return) {
+            _iterator6.return();
+        }
+    } finally {
+        if (_didIteratorError6) {
+            throw _iteratorError6;
+        }
+    }
+}
+
+ss2.forEach(function (key, value, _this) {
+    return console.log(_this);
+});
+
+var asd = [].concat(_toConsumableArray(ss2));
+console.log(asd);
+
+var sA = new Set([1, 2, 3]);
+var sB = new Set([2, 3, 4]);
+
+console.log(new Set([].concat(_toConsumableArray(sA)).filter(function (x) {
+    return sB.has(x);
+}))); //交集
+console.log(new Set([].concat(_toConsumableArray(sA)).filter(function (x) {
+    return !sB.has(x);
+}))); //差集
+
+var ws = new WeakSet();
+ws.add(window);
+
+var tMap = new Map([['name', '张三'], ['title', 'author']]);
+
+tMap.set('a', 1).set('b', 2).set('c', 3);
+
+console.log(tMap);
+
+//对象转Map
+function objToMap(obj) {
+    var map = new Map();
+    var _iteratorNormalCompletion7 = true;
+    var _didIteratorError7 = false;
+    var _iteratorError7 = undefined;
+
+    try {
+        for (var _iterator7 = Object.keys(obj)[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+            var _k2 = _step7.value;
+
+            map.set(_k2, obj[_k2]);
+        }
+    } catch (err) {
+        _didIteratorError7 = true;
+        _iteratorError7 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion7 && _iterator7.return) {
+                _iterator7.return();
+            }
+        } finally {
+            if (_didIteratorError7) {
+                throw _iteratorError7;
+            }
+        }
+    }
+
+    return map;
+}
+
+var mmObj = { 'aa': 11, 'bb': 22 };
+console.log(objToMap(mmObj));
+
+//代理
+var proxyss = new Proxy({}, {
+    get: function get(target, handler) {
+        return 10;
+    }
+});
+proxyss.ss = 2;
+console.log(proxyss.ss);
+
+//Promise实例
+function settimeout(ms) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(resolve, ms, '已完成！！'); //3秒后打印出‘已完成’
+    });
+}
+
+settimeout(3000).then(function (value) {
+    console.log(value);
+});
+
+var myPromise = new Promise(function (resolve, reject) {
+    console.log('Promise!'); //最先开始打印
+    resolve();
+});
+
+myPromise.then(function () {
+    console.log('Resolved!'); //最后打印
+});
+
+console.log('Hi!'); //第二先打印
+
+
+function loadImageAsync(url) {
+    return new Promise(function (resolve, reject) {
+        var image = new Image();
+
+        image.onload = function () {
+            resolve(image);
+        };
+
+        image.error = function () {
+            reject(new Error('Could not load image at ' + url));
+        };
+
+        image.src = url;
+    });
+}
+
+var myPro = new Promise(function (resolve, reject) {
+    throw new Error('test err!');
+});
+
+myPro.catch(function (err) {
+    console.log(err);
+});
+
+var myPro2 = new Promise(function (resolve, reject) {
+    resolve(xqw + 34);
+});
+
+myPro2.then(function (data) {
+    console.log(data);
+}).catch(function (err) {
+    console.log(err);
+});
+
+var myPro3 = new Promise(function (resolve, reject) {
+    resolve(q + 2);
+});
+
+myPro3.then(function (data) {
+    console.log(data);
+}).catch(function (err) {
+    y + 7;
+    console.log(err);
+}).catch(function (err) {
+    console.log(err);
+});
+
+function gen(x) {
+    var y;
+    return regeneratorRuntime.wrap(function gen$(_context) {
+        while (1) {
+            switch (_context.prev = _context.next) {
+                case 0:
+                    _context.prev = 0;
+                    _context.next = 3;
+                    return x + 2;
+
+                case 3:
+                    y = _context.sent;
+                    _context.next = 9;
+                    break;
+
+                case 6:
+                    _context.prev = 6;
+                    _context.t0 = _context['catch'](0);
+
+                    console.log(_context.t0);
+
+                case 9:
+                    return _context.abrupt('return', y);
+
+                case 10:
+                case 'end':
+                    return _context.stop();
+            }
+        }
+    }, _marked[0], this, [[0, 6]]);
+}
+
+var myGen = gen(1);
+
+console.log(myGen);

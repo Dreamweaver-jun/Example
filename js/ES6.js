@@ -258,3 +258,201 @@ var tfn1 = new tFn();
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype);         //返回true
 Object.setPrototypeOf(tfn1,Object.prototype);
 console.log(Object.getPrototypeOf(tfn1) === tFn.prototype);         //返回false
+
+let sObj = {};
+let s1 = Symbol();
+let s2 = Symbol();
+sObj[s1] = 'hello,';
+sObj[s2] = 'world!';
+
+const tObj = Object.getOwnPropertySymbols(sObj);
+
+console.log(tObj);
+
+let kObj = {
+    [Symbol('myKey')] : 1,
+    name : 'v',
+    age : 34
+};
+
+console.log(Reflect.ownKeys(kObj));
+
+const ss1 = new Set();
+
+[2,4,5,6,7,5,6,7].forEach((x) => ss1.add(x));
+
+for (var i of ss1)
+{
+    console.log(i);
+}
+
+let ss2 = new Set([2,4,6,8,0,8,0]);
+console.log(ss2);
+ss2.delete(0);
+console.log(ss2.has(2));
+//ss2.clear();
+console.log(ss2);
+
+//去重数组元素
+function dedupe(arr)
+{
+    return Array.from(new Set(arr));
+}
+
+console.log(dedupe([5,6,4,1,5,6,4]));
+
+//遍历Set数据结构
+for(let sItem of ss2)
+{
+    console.log(sItem);
+}
+
+ss2.forEach((key,value,_this) => console.log(_this));
+
+var asd = [...ss2];
+console.log(asd);
+
+let sA = new Set([1,2,3]);
+let sB = new Set([2,3,4]);
+
+console.log(new Set([...sA].filter((x) => sB.has(x))));              //交集
+console.log(new Set([...sA].filter((x) => !sB.has(x))));             //差集
+
+let ws = new WeakSet();
+ws.add(window);
+
+let tMap = new Map([
+    ['name','张三'],
+    ['title','author']
+]);
+
+tMap.set('a',1).set('b',2).set('c',3);
+
+console.log(tMap);
+
+//对象转Map
+function objToMap(obj){
+    let map = new Map();
+    for(let k of Object.keys(obj))
+    {
+        map.set(k,obj[k]);
+    }
+    return map;
+}
+
+let mmObj = {'aa':11,'bb':22};
+console.log(objToMap(mmObj));
+
+
+//代理
+var proxyss = new Proxy({},{
+    get : function(target,handler){
+        return 10;
+    }
+});
+proxyss.ss = 2;
+console.log(proxyss.ss);
+
+//Promise实例
+function settimeout(ms){
+    return new Promise((resolve,reject) => {
+        setTimeout(resolve,ms,'已完成！！');     //3秒后打印出‘已完成’
+    })
+}
+
+settimeout(3000).then((value) => {
+   console.log(value);
+});
+
+var myPromise = new Promise((resolve,reject) => {
+    console.log('Promise!');                //最先开始打印
+    resolve();
+});
+
+myPromise.then(() => {
+    console.log('Resolved!');               //最后打印
+});
+
+console.log('Hi!');                         //第二先打印
+
+
+function loadImageAsync(url){
+    return new Promise(function(resolve,reject){
+        var image = new Image();
+
+        image.onload = function(){
+            resolve(image);
+        };
+
+        image.error = () => {
+            reject(new Error('Could not load image at ' + url));
+        };
+
+        image.src = url;
+    })
+}
+
+var myPro = new Promise(function(resolve,reject){
+    throw new Error('test err!');
+});
+
+myPro.catch(function(err){
+    console.log(err);
+});
+
+var myPro2 = new Promise(function(resolve,reject){
+    resolve( xqw + 34);
+});
+
+myPro2.then(function(data){
+    console.log(data);
+}).catch(function(err){
+    console.log(err);
+});
+
+
+var myPro3 = new Promise(function(resolve,reject){
+    resolve(q + 2);
+});
+
+myPro3.then(function(data){
+    console.log(data)
+}).catch(function(err){
+    y + 7;
+    console.log(err);
+}).catch(function(err){
+    console.log(err);
+});
+
+
+function *gen(x){
+    try {
+        var y = yield x +2;
+    }
+    catch(e){
+        console.log(e);
+    }
+    return y;
+}
+
+var myGen = gen(1);
+
+console.log(myGen);
+
+//Class的使用
+class Point {
+    constructor (x,y){
+        this.x = x;
+        this.y = y;
+    }
+
+    toString()
+    {
+        return '('+this.x+','+this.y+')';
+    }
+}
+
+Object.assign(Point.prototype,{                 //向Point.prototype一次性添加多个方法
+    toArr(){},
+    toArr2(){}
+});
