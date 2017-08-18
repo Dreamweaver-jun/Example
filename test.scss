@@ -1,0 +1,86 @@
+/* reset css */
+
+h1, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+img {
+  vertical-align: middle;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+}
+
+
+
+@function strip-units($num){
+  @return $num / 75;
+}
+
+@mixin remCalc($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    //$browser-default-font-size: strip-units($browser-default-font-size);
+    $pxValues: #{$pxValues + $value * 75}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+  //#{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+
+
+
+  $primary: red;
+
+  .foo {
+    color : $primary;
+    border: 1px solid $primary;
+    @include remCalc(margin,50);
+    @include remCalc(font-size,40);
+    @include remCalc(padding,20);
+  }
+
+  .bar {
+    @include remCalc(padding,20);
+  }
